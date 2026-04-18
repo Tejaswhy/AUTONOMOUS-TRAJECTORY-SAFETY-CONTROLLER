@@ -1,20 +1,47 @@
-.
-This project implements a real-time autonomous driving system in the Webots simulation environment using computer vision and control logic. The goal is to enable a vehicle to drive autonomously by following road lanes and avoiding obstacles using only camera input.
+1.
+This project implements an AI-powered healthcare assistance system designed for early-stage diagnosis and patient monitoring. It combines computer vision and natural language processing techniques to analyze medical images and symptoms, providing a comprehensive and intelligent health screening solution.
+
+
+
 2.
-The system relies on a front-facing camera that continuously captures frames of the environment. These frames are processed in real time to extract useful information such as lane position and nearby obstacles, forming the foundation of the perception system.
+The system is built using Streamlit for the user interface, PyTorch for deep learning models, EfficientNet for image classification, and BioBERT for symptom-based disease prediction. It offers an interactive and user-friendly platform for both patients and healthcare professionals.
+
+
+
 3.
-Lane detection is performed using OpenCV techniques. The captured image is converted to grayscale, blurred to reduce noise, and processed using edge detection. By focusing on the lower half of the image, the system isolates the road region for accurate lane analysis.
+The application accepts multiple types of inputs, including eye images, tongue images, skin images, and textual symptom descriptions. By combining these inputs, the system provides a more holistic understanding of the patient’s condition.
+
+
+
 4.
-From the detected edges, the system computes a weighted average of pixel positions to estimate the lane center. The difference between the lane center and the image center gives the lane offset, which indicates how far the vehicle has deviated from the center of the lane.
+The eye analysis module uses a trained image classification model to detect conditions such as cataract, thyroid-related eye signs, uveitis, watery eyes caused by fever, and normal eye health. This enables quick visual screening for common eye-related diseases.
+
+
+
 5.
-Steering control is based on this lane offset using a proportional control strategy. The system applies smooth corrections to the steering angle, ensuring gradual adjustments that prevent sudden or unstable movements during driving.
+The tongue analysis module evaluates tongue images to identify possible health conditions including oral cancer, diabetes indicators, prediabetes signs, and healthy tongue status. This helps in identifying internal health issues through visual markers.
+
+
+
 6.
-Speed control is dynamically adjusted based on road conditions. The vehicle accelerates on straight paths and slows down when navigating curves or when lane detection confidence is low, improving overall stability and control.
+The skin analysis module allows users to upload skin images and detects various dermatological conditions such as melanoma, benign keratosis, atopic dermatitis, ringworm or candidiasis, squamous cell carcinoma, and vascular lesions.
+
+
+
 7.
-For obstacle detection, the system integrates a YOLO model that identifies objects in real time. The model processes each frame and detects objects in the vehicle’s forward path, allowing the system to recognize potential hazards.
+In addition to image-based analysis, the system includes a symptom-based prediction module powered by BioBERT. Users can input symptoms like fever, fatigue, headache, vomiting, breathing issues, and body pain, and the model predicts the most likely disease.
+
+
+
 8.
-When an obstacle is detected close to the vehicle, a safety mechanism is triggered. The system slows down or reverses while adjusting steering to avoid collisions, ensuring safe navigation even in dynamic environments.
+The system combines predictions from image analysis and symptom analysis to generate a final diagnosis along with a confidence score. This multi-modal approach improves the accuracy and reliability of the results.
+
+
+
 9.
-A recovery mechanism is implemented to handle failure cases such as lane loss or the vehicle getting stuck. The system detects lack of movement and initiates corrective actions like reversing and turning to regain proper orientation.
+A key feature of the project is patient history tracking. Each user is assigned a unique patient ID, and all uploaded images are stored for future reference. The system also compares past and current images using feature embeddings to monitor changes over time.
+
+
+
 10.
-Overall, the system combines perception, decision-making, and control into a continuous loop that enables stable and reliable autonomous driving. Its modular design allows easy integration of advanced techniques such as reinforcement learning, trajectory prediction, and multi-object tracking for future improvements.
+The application includes a reminder system that allows users to schedule notifications for medication, hydration, sugar checks, and follow-up consultations. Overall, this project demonstrates an integrated healthcare solution that combines AI, data tracking, and user interaction, with future scope for cloud integration, doctor dashboards, and advanced anomaly detection.

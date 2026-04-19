@@ -1,37 +1,18 @@
-1. This project implements an AI-powered healthcare assistance system designed for early-stage diagnosis and patient monitoring. It combines computer vision and natural language processing techniques to analyze medical images and symptoms, providing a comprehensive and intelligent health screening solution.
+🚀 Building a Risk-Aware Autonomous Driving System
 
+Autonomous vehicles operate in highly dynamic and uncertain environments, where surrounding traffic, pedestrians, and road obstacles make future trajectory prediction extremely challenging. Even small prediction errors can lead to lane deviation, delayed braking, or collision risks. Traditional systems often struggle with transparency, making it difficult to explain decisions like braking or lane changes.
 
+To address this, I worked on designing a **safe, explainable, and uncertainty-aware trajectory controller** suitable for real-time ADAS deployment. The goal was to ensure collision-aware safety, precise path tracking, and intelligent decision-making under uncertainty.
 
-2. The system is built using Streamlit for the user interface, PyTorch for deep learning models, EfficientNet for image classification, and BioBERT for symptom-based disease prediction. It offers an interactive and user-friendly platform for both patients and healthcare professionals.
+The system follows a full AI pipeline. It uses Webots for realistic simulation and YOLO for real-time perception of vehicles and obstacles. ByteTrack enables continuous object tracking across frames, while LSTM predicts short-term future motion of surrounding objects. These inputs are combined into a structured state vector including lane offset, speed, steering, and obstacle data. A DQN-based reinforcement learning agent then learns optimal driving actions such as steering, acceleration, and braking. On top of this, a safety control layer ensures stability through reverse recovery, adaptive speed control, and corrective maneuvers.
 
+Compared to traditional approaches, this system introduces major improvements. Instead of basic lane detection, it uses advanced perception for accurate environmental understanding. Tracking is no longer frame-by-frame but continuous, enabling better motion awareness. The system moves from reactive behavior to predictive intelligence using LSTM. Decision-making evolves from fixed rules to adaptive learning through reinforcement learning. All of this is validated in a realistic simulation environment, making it closer to real-world deployment.
 
+The architecture integrates perception, tracking, prediction, and control into a unified pipeline, enabling real-time decision-making with mathematically reliable safety bounds. The system is designed to be scalable, robust, and suitable for safety-critical automotive applications.
 
-3. The application accepts multiple types of inputs, including eye images, tongue images, skin images, and textual symptom descriptions. By combining these inputs, the system provides a more holistic understanding of the patient’s condition.
+Looking ahead, this work can be extended to multi-agent traffic scenarios, real-world ADAS deployment, edge optimization for low latency, and advanced RL algorithms like PPO or DDPG.
 
+This project strengthened my understanding of combining computer vision, sequence modeling, and reinforcement learning into a single intelligent system for autonomous driving.
 
+Would love to hear your thoughts!
 
-4. The eye analysis module uses a trained image classification model to detect conditions such as cataract, thyroid-related eye signs, uveitis, watery eyes caused by fever, and normal eye health. This enables quick visual screening for common eye-related diseases.
-
-
-
-5. The tongue analysis module evaluates tongue images to identify possible health conditions including oral cancer, diabetes indicators, prediabetes signs, and healthy tongue status. This helps in identifying internal health issues through visual markers.
-
-
-
-6. The skin analysis module allows users to upload skin images and detects various dermatological conditions such as melanoma, benign keratosis, atopic dermatitis, ringworm or candidiasis, squamous cell carcinoma, and vascular lesions.
-
-
-
-7. In addition to image-based analysis, the system includes a symptom-based prediction module powered by BioBERT. Users can input symptoms like fever, fatigue, headache, vomiting, breathing issues, and body pain, and the model predicts the most likely disease.
-
-
-
-8. The system combines predictions from image analysis and symptom analysis to generate a final diagnosis along with a confidence score. This multi-modal approach improves the accuracy and reliability of the results.
-
-
-
-9. A key feature of the project is patient history tracking. Each user is assigned a unique patient ID, and all uploaded images are stored for future reference. The system also compares past and current images using feature embeddings to monitor changes over time.
-
-
-
-10. The application includes a reminder system that allows users to schedule notifications for medication, hydration, sugar checks, and follow-up consultations. Overall, this project demonstrates an integrated healthcare solution that combines AI, data tracking, and user interaction, with future scope for cloud integration, doctor dashboards, and advanced anomaly detection.
